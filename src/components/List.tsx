@@ -1,13 +1,6 @@
 import react from "react";
+import {IState as IProps} from "../App"
 
-interface IProps{
-  people: {
-    name: string,
-    age: number,
-    url: string,
-    note?: string
-  }[]
-}
 // const List = (props: IProps) => {
 // const List = ({people}: IProps) => { //destructure
 
