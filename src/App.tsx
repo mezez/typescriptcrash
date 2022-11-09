@@ -2,30 +2,47 @@ import React , {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import List from "./components/List";
+
+interface IState{
+  people: {
+    name: string,
+    age: number,
+    url: string,
+    note?: string
+  }[]
+}
+
 function App() {
 
-  // const [number, setNumber] = useState<number | string>(5);
-  const [number, setNumber] = useState(5);
-  const changeNumber = () => {
-    setNumber(10)
-    // setNumber("10")
-  }
+  // const [people, setPeople] = useState([
+  //   {
+  //     name: "Mez Eke",
+  //     url: "",
+  //     age: 20,
+  //     note: "This is a note about me"
+  //   },
+  //   {
+  //     name: "Krista Asoluka",
+  //     url: "",
+  //     age: 21,
+  //   },
+  // ])
+  // const [people, setPeople] = useState<{}[]>([]) //define type of array of object
+  const [people, setPeople] = useState<IState["people"]>([
+    {
+      name: "Steph Curry",
+      url: "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3975.png&w=350&h=254",
+      age: 34,
+      note: "Sorry, can't miss 3 pointers",
+    }
+  ]) //define type of array of object. can be empty
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Invitees</h1>
+     <List people={people}/>
     </div>
   );
 }
